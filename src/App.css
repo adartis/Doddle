@@ -1,38 +1,170 @@
-.App {
-  text-align: center;
+/* Container that holds the entire page layout (header, left column, and middle section) */
+.container {
+  display: flex; /* Flexbox layout */
+  flex-direction: column; /* Arrange elements vertically */
+  height: 100vh; /* Full height of the viewport */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Header styling - contains the toggles and present button */
+.header {
+  display: flex; /* Horizontal flex layout */
+  justify-content: space-between; /* Spread the elements to edges */
+  padding: 10px; /* Add padding */
+  background-color: #f4f4f4; /* Light grey background for the header */
+  border-bottom: 1px solid #ddd; /* Light grey bottom border */
+}
+/* Container for each work package to align items horizontally */
+.work-package-row {
+  display: flex;                /* Use flexbox to arrange items in a row */
+  justify-content: space-between; /* Adds space between elements */
+  align-items: center;           /* Align items vertically in the center */
+  gap: 10px;                     /* Adds space between each element */
+  padding: 10px 0;               /* Add padding for spacing between rows */
+  border-bottom: 1px solid #ccc; /* Optional: adds a bottom border for separation */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Style each input and textarea to fit within the row */
+.title-input, .leader-input, .dropdown-select {
+  flex: 1;                       /* Make the inputs stretch evenly */
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.description-textarea {
+  flex: 2;                       /* Make the description take up more space */
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  resize: both;                  /* Allow resizing */
+}
+
+.dropdown-select {
+  width: 150px;                  /* Set a fixed width for the dropdown */
+}
+
+/* Optional: Add some focus styles for better user experience */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #007bff;          /* Change border color on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a subtle blue glow */
+}
+/* Action plan row container */
+.action-plan-row {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between; /* Spread elements evenly */
+  align-items: center;            /* Vertically align elements */
+  gap: 10px;                      /* Space between inputs */
+  margin-bottom: 10px;            /* Space between rows */
+}
+
+/* Style the inputs and select dropdown */
+.dropdown-select, .description-input, .date-input, .responsible-input {
+  flex: 1;                        /* Make inputs take up equal space */
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* Set a specific width for the dropdown if needed */
+.dropdown-select {
+  width: 150px;
+}
+
+.add-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
   color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.add-button:hover {
+  background-color: #0056b3;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Styles for the resizable textareas */
+.textarea {
+  width: 80%;              /* Full width of the parent container */
+  height: 100px;            /* Default height */
+  padding: 10px;            /* Space inside the textarea for better readability */
+  font-size: 16px;          /* Adjust the font size for readability */
+  line-height: 1.5;         /* Spacing between lines of text */
+  border: 1px solid #ccc;   /* Light grey border */
+  border-radius: 4px;       /* Slight rounding of corners */
+  resize: both;             /* Enable resizing both horizontally and vertically */
+  overflow: auto;           /* Ensure scrolling works properly */
+  box-sizing: border-box;   /* Include padding and border in the element's width and height */
+}
+
+/* Focused state styling to enhance user experience */
+.textarea:focus {
+  border-color: #007bff;    /* Change border color to blue on focus */
+  outline: none;            /* Remove the default outline */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a subtle blue glow around the textarea */
+}
+
+
+/* General styles for the toggle buttons */
+.toggle-button {
+  padding: 10px 20px; /* Padding inside the button */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  border: none; /* Remove default button border */
+  background-color: #ddd; /* Default background color */
+}
+
+/* Active button style to highlight the selected toggle */
+.toggle-button.active {
+  background-color: #28a745; /* Green background for active button */
+  color: white; /* White text on active button */
+}
+
+/* Styles for the 'Present' button */
+.present-button {
+  padding: 10px; /* Padding around the button */
+}
+
+.save-button {
+  padding: 10px 20px; /* Padding inside the button */
+  cursor: pointer; /* Pointer cursor on hover */
+  background-color: #007bff; /* Blue background */
+  color: white; /* White text */
+  border: none; /* Remove default button border */
+}
+
+/* Main content that contains the left column and middle section */
+.main-content {
+  display: flex; /* Horizontal flex layout */
+  height: 100%; /* Take up the remaining height of the page */
+}
+
+/* Left Column Styling */
+.left-column {
+  width: 20%; /* Left column takes 20% of the screen */
+  background-color: #f8f9fa; /* Light background color */
+  padding: 10px; /* Padding inside the column */
+  border-right: 1px solid #ddd; /* Right border to separate it from the middle section */
+}
+
+/* Styles for each clickable box in the left column */
+.clickable-box {
+  background-color: #ddd; /* Default box color */
+  padding: 20px; /* Padding inside each box */
+  margin: 10px 0; /* Spacing between boxes */
+  cursor: pointer; /* Pointer cursor on hover */
+  text-align: center; /* Center text inside the box */
+}
+
+/* Hover effect for the clickable boxes */
+.clickable-box:hover {
+  background-color: #007bff; /* Blue background on hover */
+  color: white; /* White text on hover */
+}
+
+/* Middle Section Styling */
+.middle-section {
+  width: 60%; /* Middle section takes 60% of the screen */
+  padding: 20px; /* Padding inside the section */
 }
